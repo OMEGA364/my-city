@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Москва</title>
+    <style>
+        body { font-family: Arial; text-align: center; }
+        #map { width: 800px; height: 500px; margin: 0 auto; }
+        .card { background: #f0f0f0; padding: 15px; margin: 20px auto; border-radius: 10px; max-width: 800px; text-align: left; }
+    </style>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+</head>
+<body>
+    <h1>🏛️ Москва - столица России</h1>
+    
+    <div class="card">
+        <h2>📖 О городе</h2>
+        <p>Москва основана в 1147 году князем Юрием Долгоруким. Население более 13 миллионов человек.</p>
+        <ul>
+            <li>Московский Кремль — объект Всемирного наследия ЮНЕСКО</li>
+            <li>В Москве 9 железнодорожных вокзалов</li>
+            <li>Московское метро — одно из самых красивых в мире</li>
+        </ul>
+    </div>
+    
+    <div class="card">
+        <h2>🗺️ Карта Москвы</h2>
+        <div id="map"></div>
+        <p><strong>Красная площадь</strong> — главная достопримечательность</p>
+    </div>
+    
+    <div class="card">
+        <h2>📞 Контакты</h2>
+        <p><strong>Туристический информационный центр:</strong></p>
+        <p>📍 Адрес: ул. Воздвиженка, 3/5, стр. 1</p>
+        <p>📞 Телефон: +7 (495) 123-45-67</p>
+        <p>✉️ Email: info@visit-moscow.ru</p>
+    </div>
+    
+    <script>
+        ymaps.ready(function() {
+            var map = new ymaps.Map("map", {
+                center: [55.7537, 37.6213],
+                zoom: 13
+            });
+            var placemark = new ymaps.Placemark([55.7537, 37.6213], {
+                hintContent: "Красная площадь",
+                balloonContent: "<b>Красная площадь</b><br>Главная площадь страны"
+            });
+            map.geoObjects.add(placemark);
+        });
+    </script>
+    
+    <footer style="margin-top: 20px; color: #666;">
+        <p>© 2026 | Сайт создан в учебных целях</p>
+    </footer>
+</body>
+</html>
